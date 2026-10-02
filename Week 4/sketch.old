@@ -1,0 +1,76 @@
+// variables to use later
+let Shape = [rect, ellipse, circle, triangle,]; // an array of shapes
+let colors1 = ['blue', 'orange', 'green'];  // an array of colors
+let colors2 = ['pink', 'yellow', 'brown']; // another array of colors NOT A 2D ARRAY
+let randomShape;
+let randomColor;
+let PosX;
+let PosY;
+let keyActive = false;
+
+function setup() {
+  createCanvas(800,  600);
+  keyPressed();
+  keyReleased();
+}
+
+
+
+// functions 
+
+
+function keyPressed() {
+  if (keyIsPressed == true) 
+    {
+      keyActive = true;
+    }
+  }
+  
+  function keyReleased() {
+    if (keyCode === 13) 
+      {
+        keyActive = false;
+      }
+    }
+    
+    function RNG() {
+      randomShape = int(random(4));
+      randomColor = int(random(3));
+    }
+    
+    function DrawShapes(PosX, PosY) {
+      fill(colors1[randomColor])
+      Shape[randomShape]
+    }
+    
+    
+    
+    function upscaler() {
+      scale();
+    }
+    
+    function moveShapes() {
+      lerp();
+    }
+    
+    
+    function draw() {
+      background(220);
+      if (keyIsPressed == true) {
+        Shape[randomShape(50,50,50,50)]
+      }
+    
+    }
+    
+    /*
+    
+    
+    RNG();
+    DrawShapes(200,200)
+    text(randomShape + " " + randomColor, 50, 50);
+    DrawShapes();
+    
+    
+    
+    
+    */
