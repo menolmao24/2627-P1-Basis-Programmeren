@@ -6,7 +6,15 @@ let TextTimer;
 let ActionDelay;
 let PosX;
 let PosY;
+let posZ;
 let keyActive = false;
+let randomclrs2;
+let bgclr1 = 220;
+let bgclr2 = 220;
+let bgclr3 = 220;
+let frames = 0;
+
+let Counter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 function setup() {
   createCanvas(800,  600);
@@ -14,36 +22,62 @@ function setup() {
   keyReleased();
 }
 
-function draw() {
-  background(220);
-  RNG();
+function BackgroundColorShift() {
   if (keyActive == true) {
-    //random([rect(PosX), ellipse, circle, triangle,],50,50,50,50,50); // an array of shapes
-    let a = random(["rect", "ellipse", "circle", "triangle"]);
-    let xpos = random(0, width);
-
+    randomclrsV2 = random(["green", "red", "orange", "pink", "white", "black", "aqua"]);
     
-    console.log(a);
-
-    if(a == "rect")
-    {
-      rect(100,100, 100, 100);
-    }
-    else if(a == "ellipse")
-    {
-      ellipse(100,100, 100, 100);
-    }
-    AlertPrompt();
+    bgclr1 = random(0, 255)
+    bgclr3 = random(0, 255)
+    bgclr2 = random(0, 255)
   }
-  
 }
 
+function draw() {
+  background(bgclr1, bgclr2, bgclr3);
+  text("hold 'Enter key' for a surprise", 15,15)
+  RNG();
+  
+  let a = random(["rect", "ellipse", "circle", "triangle"]);
+  
+  if (keyActive == true) {
+    BackgroundColorShift();
+    let randomclrs = random(["green", "red", "orange", "pink", "white"]);
+    let randomclrsV2 = random(["green", "red", "orange", "pink", "white", "black", "aqua"]);
+    let randomclrsV3 = random(["green", "red", "orange", "pink", "white", "black", "aqua"]);
+    console.log(a);
+    
+    if(a == "rect")
+      {
+        fill(randomclrs)
+      rect(PosX,PosY, 100, 100);
+    }
+    else if(a == "ellipse")
+      {
+        fill(randomclrsV2)
+        ellipse(PosX,PosY, 100, 100);
+      }
+
+      else if(a == "triangle"){
+        fill(randomclrsV3);
+        triangle(PosX,PosY,PosX - PosY + 10,100,100);
+      }
+      
+      
+    }
+    
+    text("my for-loop has ran: " + frames + " times", 50, 50)
+    for (let index = 0; index < 200; index++) {
+      frames = frames + index * 2;
+    }
+  
+  }
+  
 
 // functions 
 
 
 function keyPressed() {
-  if (keyIsPressed == true) 
+  if (keyCode === 13) 
     {
       keyActive = true;
     }
@@ -53,7 +87,7 @@ function keyPressed() {
 
 
 function keyReleased() {
-    if (keyCode === 13 && Frameco|| keyCode === 'i') 
+    if (keyCode === 13 || keyCode === 'i') 
       {
         keyActive = false;
       }
@@ -62,6 +96,7 @@ function keyReleased() {
     function RNG() {
       PosX = random(800)
       PosY = random(600)
+      PosZ = random(800)
     }
     
     function AlertPrompt() {
@@ -75,5 +110,9 @@ function keyReleased() {
         TextTimer++;
         } 
       } 
+
+
+
+
     
     }
