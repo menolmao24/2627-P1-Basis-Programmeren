@@ -1,10 +1,10 @@
 let xPos;
 let yPos;
-let string = question1 = "how many mainline persona games exist";
-let int = question2 = 5;
+
+let QuizData = "/"
 
 
-let col1;
+
 let col2;
 let question1 = {
   leeftijd: 21,
@@ -35,8 +35,12 @@ function draw() {
   rect(475, 250, 250, 75);
   rect(475, 350, 250, 75);
 
+  
+  // fill color 
+  fill("black")
+  
   // text for in the answer sheet
-
+  text("A.  ", 475, 250)
 
 
 }
